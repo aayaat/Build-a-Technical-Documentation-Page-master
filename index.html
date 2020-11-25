@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>
+          CSS
+        </h1>
+      </header>
+      <nav class="list">
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#So_what_is_CSS,_really?"
+          >So what is CSS, really?</a
+        >
+        <a class="nav-link" href="#Fonts_and_text">Fonts and text</a>
+        <a class="nav-link" href="#Boxes,_boxes,_it's_all_about_boxes"
+          >Boxes, boxes, it's all about boxes</a
+        >
+        <a class="nav-link" href="#Conclusion">Conclusion</a>
+        <a class="nav-link" href="#In_this_module">In this module</a>
+      </nav>
+    </nav>
+    <main id="main-doc">
+      <section id="Introduction" class="main-section">
+        <header>
+          <h2>
+            Introduction
+          </h2>
+        </header>
+        <p>
+          CSS (Cascading Style Sheets) is the code you use to style your
+          webpage. CSS basics takes you through what you need to get started.
+          We'll answer questions like: How do I make my text black or red? How
+          do I make my content show up in such-and-such a place on the screen?
+          How do I decorate my webpage with background images and colors?
+        </p>
+      </section>
+      <section id="So_what_is_CSS,_really?" class="main-section">
+        <header>
+          <h2>So what is CSS, really?</h2>
+        </header>
+        <p>
+          Like HTML, CSS is not really a programming language. It is not a
+          markup language either — it is a style sheet language. This means that
+          it lets you apply styles selectively to elements in HTML documents.
+          For example, to select all the paragraph elements on an HTML page and
+          turn the text within them red, you'd write this CSS:
+        </p>
+        <pre><code>p { 
+  color: red; 
+}</code></pre>
+        <p>
+          Let's try it out: paste those three lines of CSS into a new file in
+          your text editor, and then save the file as <code>style.css</code> in
+          your <code>styles</code> directory.
+        </p>
+        <p>
+          But we still need to apply the CSS to your HTML document. Otherwise,
+          the CSS styling won't affect how your browser displays the HTML
+          document. (If you haven't been following on with our project, read
+          Dealing with files and HTML basics to find out what you need to do
+          first.)
+        </p>
+
+        <ol>
+          <li>
+            Open your <code>index.html</code> file and paste the following line
+            somewhere in the head (that is, between the
+            <head>
+              and
+            </head>
+            tags):
+          </li>
+          <li>
+            Save <code>index.html</code> and load it in your browser. You should
+            see something like this:
+          </li>
+        </ol>
+        <figure>
+          <img
+            alt="A mozilla logo and some paragraphs. The paragraph text has been styled red by our css."
+            src="https://mdn.mozillademos.org/files/9435/website-screenshot-styled.png"
+            style="display: block; height: 832px; margin: 0px auto; width: 711px;"
+          />
+        </figure>
+        <p>
+          If your paragraph text is now red, congratulations! You've just
+          written your first successful CSS.
+        </p>
+
+        <h3>Anatomy of a CSS ruleset</h3>
+        <p>
+          Let's look at the above CSS in a bit more detail:
+        </p>
+        <figure>
+          <img
+            alt="CSS p declaration color red"
+            src="https://mdn.mozillademos.org/files/9461/css-declaration-small.png"
+            style="display: block; height: 480px; margin: 0px auto; width: 850px;"
+          />
+        </figure>
+        <p>
+          The whole structure is called a rule set (but often "rule" for short).
+          Note the names of the individual parts:
+        </p>
+
+        <dl>
+          <dt>Selector</dt>
+          <dd>
+            The HTML element name at the start of the rule set. It selects the
+            element(s) to be styled (in this case,
+            <a
+              href="/en-US/docs/Web/HTML/Element/p"
+              title="The HTML <p> element represents a paragraph."
+              ><code>&lt;p&gt;</code></a
+            >
+            elements). To style a different element, just change the selector.
+          </dd>
+          <dt>Declaration</dt>
+          <dd>
+            A single rule like <code>color: red;</code> specifying which of the
+            element's <strong>properties</strong><strong> </strong>you want to
+            style.
+          </dd>
+          <dt>Properties</dt>
+          <dd>
+            Ways in which you can style a given HTML element. (In this case,
+            <code>color</code> is a property of the
+            <a
+              href="/en-US/docs/Web/HTML/Element/p"
+              title="The HTML <p> element represents a paragraph."
+              ><code>&lt;p&gt;</code></a
+            >
+            elements.) In CSS, you choose which properties you want to affect in
+            your rule.
+          </dd>
+          <dt>Property value</dt>
+          <dd>
+            To the right of the property, after the colon, we have the
+            <strong>property value</strong>, which&nbsp;chooses one out of many
+            possible appearances for a given property (there are many
+            <code>color</code> values besides <code>red</code>).
+          </dd>
+        </dl>
+
+        <p>
+          Note the other important parts of the syntax:
+        </p>
+        <ul>
+          <li>
+            Each rule set (apart from the selector) must be wrapped in curly
+            braces (<code>{}</code>).
+          </li>
+          <li>
+            Within each declaration, you must use a colon (<code>:</code>) to
+            separate the property from its values.
+          </li>
+          <li>
+            Within each rule set, you must use a semicolon (<code>;</code>) to
+            separate each declaration from the next one.
+          </li>
+        </ul>
+        <p>
+          So to modify multiple property values at once, you just need to write
+          them separated by semicolons, like this:
+        </p>
+
+        <pre>
+<code>
+p {
+  color: red;
+  width: 500px;
+  border: 1px solid black;
+}
+</code>
+</pre>
+
+        <h3>
+          Selecting multiple elements
+        </h3>
+
+        <p>
+          You can also select multiple types of elements and apply a single rule
+          set to all of them. Multiple selectors are separated by commas. For
+          example:
+        </p>
+
+        <pre>
+<code>
+p, li, h1 {
+  color: red;
+}
+</code>
+</pre>
+      </section>
+      <section id="Fonts_and_text" class="main-section">
+        <header>
+          <h2>Fonts and text</h2>
+        </header>
+        <p>
+          Now that we've explored some CSS basics, let's start adding some more
+          rules and information to our <code>style.css</code> file to make our
+          example look nice. Let's start by getting our fonts and text to look a
+          little better.
+        </p>
+
+        <p>
+          Now we'll set font sizes for text-containing elements inside the HTML body (<code>h1</code>, <code>li</code>, and <code>p</code> ). We'll also center the text of our heading and set some line height and letter spacing on the body content to make it a bit more readable: 
+        </p>
+        <pre>
+          <code>
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+p, li {
+  font-size: 16px;    
+  line-height: 2;
+  letter-spacing: 1px;
+}
+          </code>
+        </pre>
+        <p>
+          You can adjust these px values to whatever you like to get your design looking how you want, but in general your design should look like this:
+
+a mozilla logo and some paragraphs. a sans-serif font has been set, the font sizes, line height and letter spacing are adjusted, and the main page heading has been centered
+        </p>
+        <figure>
+          <img alt="a mozilla logo and some paragraphs. a sans-serif font has been set, the font sizes, line height and letter spacing are adjusted, and the main page heading has been centered" src="https://mdn.mozillademos.org/files/9447/website-screenshot-font-small.png" style="display: block; height: 1020px; margin: 0px auto; width: 921px;">
+        </figure>
+      </section>
+      <section id="Boxes,_boxes,_it's_all_about_boxes" class="main-section">
+        <header>
+          <h2>Boxes, boxes, it's all about boxes</h2>
+        </header>
+        <p>
+          One thing you'll notice about writing CSS is that a lot of it is about boxes — setting their size, color, position, etc. Most of the HTML elements on your page can be thought of as boxes sitting on top of each other.
+        </p>
+
+        <figure>
+          <img alt="a big stack of boxes or crates sat on top of one another" src="https://mdn.mozillademos.org/files/9441/boxes.jpg" style="display: block; height: 463px; margin: 0px auto; width: 640px;">
+        </figure>
+
+        <p>
+          Not surprisingly, CSS layout is based principally on the box model. Each of the blocks taking up space on your page has properties like this:
+        </p>
+
+        <ul>
+ <li><code>padding</code>, the space just around the content (e.g., around paragraph text).</li>
+ <li><code>border</code>, the solid line that sits just outside the padding.</li>
+ <li><code>margin</code>, the space around the outside of the element.</li>
+</ul>
+
+<figure>
+  <img alt="three boxes sat inside one another. From outside to in they are labelled margin, border and padding" src="https://mdn.mozillademos.org/files/9443/box-model.png" style="display: block; height: 450px; margin: 0px auto; width: 574px;">
+</figure>
+
+<p>
+  In this section we also use:
+</p>
+
+<ul>
+ <li><code>width</code> (of an element).</li>
+ <li><code>background-color</code>, the color behind an element's content and padding.</li>
+ <li><code>color</code>, the color of an element's content (usually text).</li>
+ <li><code>text-shadow</code>: sets a drop shadow on the text inside an element.</li>
+ <li><code>display</code>: sets the display mode of an element (don't worry about this yet).</li>
+</ul>
+
+<p>
+  So, let's get started and add some more CSS to our page! Keep adding these new rules to the bottom of the page, and don't be afraid to experiment with changing values to see how it turns out.
+</p>
+
+<h3>
+  Changing the page color
+</h3>
+
+<pre>
+  <code>
+html {
+  background-color: #00539F;
+}
+  </code>
+</pre>
+
+<h3>
+  Sorting the body out
+</h3>
+
+<pre>
+  <code>
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #FF9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+  </code>
+</pre>
+
+<h3>
+  Positioning and styling our main page title
+</h3>
+
+<pre>
+  <code>
+h1 {
+  margin: 0;
+  padding: 20px 0;    
+  color: #00539F;
+  text-shadow: 3px 3px 1px black;
+}
+  </code>
+</pre>
+
+
+      </section>
+      <section id="Conclusion" class="main-section">
+        <header>
+          <h2>Conclusion</h2>
+        </header>
+        <p>
+  If you have followed all the instructions in this article, you should end up with a page that looks something like this (you can also view our version here):
+</p>
+
+<figure>
+  <img alt="a mozilla logo, centered, and a header and paragraphs. It now looks nicely styled, with a blue background for the whole page and orange background for the centered main content strip." src="https://mdn.mozillademos.org/files/9455/website-screenshot-final.png" style="display: block; height: 1084px; margin: 0px auto; width: 940px;">
+</figure>
+
+      </section>
+      <section id="In_this_module" class="main-section">
+        <header>
+          <h2>In this module</h2>
+        </header>
+       <p>
+  Here, we have only really scratched the surface of CSS. To find out more, go to our CSS Learning topic.
+</p>
+  
+      </section>
+    </main>
+
+    <!-- script to test the tribute page from fcc -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
